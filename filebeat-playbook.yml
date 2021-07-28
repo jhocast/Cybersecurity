@@ -1,0 +1,69 @@
+--
+- name: create filebeat
+  hosts: webservers
+  remote_user: azadmin
+  become: yes
+  tasks:
+
+    # Use command module
+  - name: Increase virtual memory
+    command: sysctl -w vm.max_map_count=262144
+
+    # Use shell module
+  - name: Increase virtual memory on restart
+    shell: echo "vm.max_map_count=262144" >> /etc/sysctl.conf
+
+  - name: download filebeats .deb
+    command: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.4.0-amd64.deb
+
+  - name: install filebeats
+    command: sudo dpkg -i filebeat-7.4.0-amd64.deb
+
+  - name: drop in filebeat.yml
+    copy:
+      src: /etc/ansible/files/filebeat-config.yml
+      dest: /etc/filebeat/filebeat.yml
+
+  - name: enable configure system module
+    command: filebeat modules enable system
+
+  - name: Setup filebeat
+    command: filebeat setup
+
+  - name: Start Filebeat
+    command: service filebeat start
+
+  - name: enable filebeat on reboot
+    systemd:
+      name: filebeat
+      state: started
+      enabled: yes
+
+  - name: download Metricbeat
+    command: curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.4.0-amd64.deb
+
+  - name: install Metricbeat
+    command: sudo dpkg -i metricbeat-7.4.0-amd64.deb
+
+  - name: drop in metricbeat-config.yml
+    copy:
+      src: /etc/ansible/files/metricbeat-config.yml
+      dest: /etc/metricbeat/metricbeat.yml
+
+  - name: enable configure system module for metricbeat
+    command: metricbeat modules enable docker
+    
+  - name: metricbeat setup
+    command: metricbeat setup
+
+  - name: run command metricbeat -e
+    command: metricbeat -e
+
+  - name: Start metricbeat
+    command: service metricbeat start
+
+  - name: enable metricbeat on reboot
+    systemd:
+      name: metricbeat
+      state: started
+      enabled: yes
