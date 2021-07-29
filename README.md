@@ -45,7 +45,7 @@ The configuration details of each machine may be found below.
 | Web-2                | Web Server     | 10.0.0.6   |      None     | Linux (ubuntu 20.04) |
 | Elk-Server           | Server Monitor | 10.1.0.5   | 20.150.141.225| Linux (ubuntu 20.04) |
 
-The machines can be provisioned by following the steps below.
+The machines can be provisioned in the same manner.  [VM Creation Images:](./Images/CreateVM/)
 1.  
 ### Access Policies
 
