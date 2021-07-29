@@ -2,8 +2,8 @@
 
 The files in this repository were used to configure the network depicted below.
 
-[Network Diagram:] (https://github.com/jhocast/Cybersecurity/blob/main/images/Network%20Diagram.pdf)
-
+[Network Diagram:](https://github.com/jhocast/Cybersecurity/blob/main/images/Network%20Diagram.pdf)
+[Network Diagram:](..images/Network%20Diagram.pdf)
 -----------start test-----------------------
 
 [I'm an inline-style link](https://www.google.com)
