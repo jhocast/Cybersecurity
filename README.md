@@ -45,8 +45,17 @@ The configuration details of each machine may be found below.
 | Web-2                | Web Server     | 10.0.0.6   |      None     | Linux (ubuntu 20.04) |
 | Elk-Server           | Server Monitor | 10.1.0.5   | 20.150.141.225| Linux (ubuntu 20.04) |
 
-The machines can be provisioned in the same manner.  [VM Creation Images:](./Images/CreateVM/)
-1.  
+<details>
+  <summary>Prepare Virtual machines and related Azure objects</summary>
+  
+  ## CreateVMS
+  1. The Virtual Machines can be provisioned in the same manner.  [VM Creation Images:](./images/CreateVM)
+  2. Once the VMs are provisioned the Load Balancer can be created. [Load Balancer Creation:](./images/CreateLoadBalancer)
+  3. Once the Load Balancer is created add Web-1 and Web-2 to a newly created Backend pool.  [Backend Pool Creation:](./images/BackEndPool)
+</details>
+
+
+
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
