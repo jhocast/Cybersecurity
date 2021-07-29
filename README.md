@@ -75,7 +75,7 @@ The machines on the internal network are not exposed to the public Internet.
     
   ## Creating Outbound rule on Elk Server
   1. Locate you IP address on https://whatismyipaddress.com
-  2. Once your IP address is located create an inbout rule 
+  2. [Once your IP address is located create an inbound rule allowing SSH access to your machine.](./images/InboundRuleElkServer)
 </details>
     
     
