@@ -71,7 +71,7 @@ The configuration details of each machine may be found below.
 The machines on the internal network are not exposed to the public Internet. 
 
 <details>
-  <summary>Only the Elk Server machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:</summary>
+  <summary>Only the Elk Server machine can accept connections from the Internet. Access to this machine is only allowed from the following IP whatever IP addresses were white listed in the Azure inbound rules:</summary>
     
   ## Creating Outbound rule on Elk Server
   1. Locate you IP address on https://whatismyipaddress.com
