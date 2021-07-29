@@ -50,8 +50,9 @@ The configuration details of each machine may be found below.
   
   ## CreateVMS
   1. The Virtual Machines can be provisioned in the same manner.  [VM Creation Images:](./images/CreateVM)
-  2. Once the VMs are provisioned the Load Balancer can be created. [Load Balancer Creation:](./images/CreateLoadBalancer.png)
-  3. Once the Load Balancer is created add Web-1 and Web-2 to a newly created Backend pool.  [Backend Pool Creation:](./images/BackEndPool.png)
+  2. Once the VMs are provisioned the Load Balancer can be created. [Load Balancer Creation:](./images/CreateLoadBalancer.PNG)
+  3. Once the Load Balancer is created add Web-1 and Web-2 to a newly created Backend pool.  [Backend Pool Creation:](./images/BackEndPool.PNG)
+  4. A load balancing rules is then created to manage the flow of traffic. [Load Balance Rule:](./images/LoadBalanceRule.PNG)
 </details>
 
 
