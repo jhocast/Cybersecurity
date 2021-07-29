@@ -61,7 +61,7 @@ The configuration details of each machine may be found below.
        - Mode : Reset SSH Public Key
        - Username: Whatever username you setup the VMs with.
        - SSH public key: Copied key from generated code or old key you already had.
-  6. [Modify the host file on th ansile machine to include a reference to the Web Servers and to the Elk Server.](./images/HostChanges.png)
+  6. [Modify the host file on the ansile container to include a reference to the Web Servers and to the Elk Server.](./images/HostChanges.png)
   6. Next you install the necessary software by loading ansible docker container into the Web servers via the Jump Box Provisioner.
   7. To test and see if everything worked out go to the IP address for the load balancer's setup.php page.  My page looks url is: [http://13.66.162.18/setup.php](./images/DVWATest.PNG), yours will be different.
 </details>
