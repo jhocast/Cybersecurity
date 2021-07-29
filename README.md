@@ -51,9 +51,26 @@ The machines can be provisioned by following the steps below.
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the Elk Server machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:  
-- _TODO: Add whitelisted IP addresses_
+# A collapsible section with markdown
+<details>
+  <summary>Click to expand!</summary>
+  
+  ## Heading
+  1. A numbered
+  2. list
+     * With some
+     * Sub bullets
+     * https://github.com/flyrcs/Azure-Virtual-Network-with-ELK-Deployment
+</details>
 
+<details>
+  <summary>Only the Elk Server machine can accept connections from the Internet. 
+    Access to this machine is only allowed from the following IP addresses:  <summary>
+    
+  ## Creating Outbound rule on Elk Server
+  1. Locate you IP address on https://whatismyipaddress.com
+  2. Once your IP address is located create an inbout rule 
+ </details>
 Machines within the network can only be accessed by _____.
 - _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_
 
