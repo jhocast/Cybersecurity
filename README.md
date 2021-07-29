@@ -4,7 +4,7 @@ The files in this repository were used to configure the network depicted below.
 
 [Network Diagram:](./images/Network%20Diagram%20(1).pdf)
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook file may be used to install only certain pieces of it, such as Filebeat.
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook yml file may be used to install only certain pieces of it, such as Filebeat.
 
 [filebeat Playbook:](filebeat-playbook.yml)
 
@@ -21,29 +21,37 @@ This document contains the following details:
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the Damn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly available and reliable, in addition to restricting access to the network.  They also help protect production servers by redirecting traffic in case of DDOS attacks.
+Load balancing ensures that the application will be highly available and reliable, in addition to restricting access to the network.  It also helps protect production servers by redirecting traffic in case of DDOS attacks.  
+Administrative Access to these load balanced virtual machines is provided through the Jump Box Provisioner.  Using the Jump Box Provisioner provides the advantage of Network Segmentation and Access Control as well as central launching point for any administrative tasks needed on the network servers.
 
-- _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box?_
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the data and system logs.
-- _TODO: What does Filebeat watch for?_
-- _TODO: What does Metricbeat record?_
+
+- Much of this monitoring is simplified by utilizing a software called [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-overview.html)
+  - Filebeat does much of the heavy lifting when it comes to retrieving the log data needed.  It's configured to search for logs in locations you specified and then forwards any found logs to the harvester where all the logs are aggreated.
+
+
+- Another software that also helps collect metric data from the system and services running on the servers is called [Metricbeat](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-overview.html)
+  - Metricbeat functionality is very similar to that of filebeat, but its focus is what's running within the server.
+  - Services that Metricbeat may include Apache, MySQL or MongoDB to name a few.  
+    - [Here's the complete list of modules Metricbeat supports](https://www.elastic.co/guide/en/beats/metricbeat/current/metricbeat-overview.html)
 
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
-| Name      | Function       | IP Address | Operating System |
-|-----------|----------------|------------|------------------|
-| Jump Box  | Gateway        | 10.0.0.1   | Linux            |
-| Web-1     | Server         | 10.0.0.5   | Linux            |
-| Web-2     | Server         | 10.0.0.6   | Linux            |
-| Elk-Server| Server Monitor | 10.1.0.5   | Linux            |
+| Name                 | Function       | IP Address | External IP   | Operating System     |
+|----------------------|----------------|------------|---------------|----------------------|
+| Jump Box Provisioner | Gateway        | 10.0.0.1   | 52.183.59.195 | Linux (ubuntu 20.04) |
+| Web-1                | Web Server     | 10.0.0.5   |      None     | Linux (ubuntu 20.04) |
+| Web-2                | Web Server     | 10.0.0.6   |      None     | Linux (ubuntu 20.04) |
+| Elk-Server           | Server Monitor | 10.1.0.5   | 20.150.141.225| Linux (ubuntu 20.04) |
 
+The machines can be provisioned by following the steps below.
+1.  
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the _____ machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
+Only the Elk Server machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:  
 - _TODO: Add whitelisted IP addresses_
 
 Machines within the network can only be accessed by _____.
@@ -61,7 +69,7 @@ A summary of the access policies in place can be found in the table below.
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
 - _TODO: What is the main advantage of automating configuration with Ansible?_
-
+_
 The playbook implements the following tasks:
 - _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
 - ...
