@@ -58,6 +58,9 @@ The configuration details of each machine may be found below.
        - ~/.ssh# ssh-keygen
        - ~/.ssh# cat id_rsa.pub
      * Once you have that key, go to each VM and select [Reset Password.](./images/ResetVMPassword.PNG)
+       - Mode : Reset SSH Public Key
+       - Username: Whatever username you setup the VMs with.
+       - SSH public key: Copied key from generated code or old key you already had.
 </details>
 
 
