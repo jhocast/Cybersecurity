@@ -61,34 +61,23 @@ The configuration details of each machine may be found below.
        - Mode : Reset SSH Public Key
        - Username: Whatever username you setup the VMs with.
        - SSH public key: Copied key from generated code or old key you already had.
+  6. Next you install the necessary software by loading ansible docker container into the Web servers via the Jump Box Provisioner.
+  7. To test and see if everything worked out go to the IP address for the load balancer's setup.php page.  My page looks url is: [http://13.66.162.18/setup.php](./images/DVWATest.PNG), yours will be different.
 </details>
-
-
 
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
 
-# A collapsible section with markdown
 <details>
-  <summary>Click to expand!</summary>
-  
-  ## Heading
-  1. A numbered
-  2. list
-     * With some
-     * Sub bullets
-     * https://github.com/flyrcs/Azure-Virtual-Network-with-ELK-Deployment
-</details>
-
-<details>
-  <summary>Only the Elk Server machine can accept connections from the Internet. 
-    Access to this machine is only allowed from the following IP addresses:  <summary>
+  <summary>Only the Elk Server machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:</summary>
     
   ## Creating Outbound rule on Elk Server
   1. Locate you IP address on https://whatismyipaddress.com
   2. Once your IP address is located create an inbout rule 
- </details>
+</details>
+    
+    
 Machines within the network can only be accessed by _____.
 - _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_
 
