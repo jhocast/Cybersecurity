@@ -84,7 +84,7 @@ The configuration details of each machine may be found below.
        - This will start the container
      - run exit to quit the containter and go back to the Jump box.
   6. Modify the host file on the ansile container to include a reference to the Web Servers and to the Elk Server. ![Host Changes](./images/HostChanges.png)
-  7. Next you install the necessary software by loading [ansible docker container](pentest.yml) into the Web servers via the Jump Box Provisioner.
+  7. Next you install the necessary software by loading [ansible docker container](pentet-playbook.yml) into the Web servers via the Jump Box Provisioner.
   8. To test and see if everything worked out go to the IP address for the load balancer's setup.php page.  My page looks url is: [http://13.66.162.18/setup.php](./images/DVWATest.PNG), yours will be different.
 </details>
 
