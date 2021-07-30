@@ -8,6 +8,7 @@ These files have been tested and used to generate a live ELK deployment on Azure
 
 - [filebeat Playbook:](filebeat-playbook.yml)
 - [Pentest Playbook for DVWA setup:](pentest.yml)
+- [metricbeat Playbook:](metricbeat-playbook.yml)
 
 This document contains the following details:
 - Description of the Topology
