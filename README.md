@@ -52,7 +52,7 @@ The configuration details of each machine may be found below.
   
   ## CreateVMS
   1. [The Virtual Machines can be provisioned in the same manner. ](./images/CreateVM)
-  2. [Once the VMs are provisioned the Load Balancer can be created. ](./images/CreateLoadBalancer.PNG)
+  2. [Once the VMs are provisioned the Load Balancer can be created. ](./images/CreateLoabBalancer.PNG)
   3. [Once the Load Balancer is created add Web-1 and Web-2 to a newly created Backend pool. ](./images/BackEndPool.PNG)
   4. [A load balancing rules is then created to manage the flow of traffic. ](./images/LoadBalanceRule.PNG)
   5. In order to get the machines to be able to communicate with each other add an SSH key to all your VMs
