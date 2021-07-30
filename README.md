@@ -96,11 +96,17 @@ The configuration details of each machine may be found below.
   2. Use the list results to retrieve the name of the container you want to start.
      - run docker start [container name] 
      - then run docker attach [container name] to get a shell in the container.
-  2. Locate your ansible config file and hosts file.  It will most likely be within /etc/ansible/
-     - Modify the ansible.cfg file. ![config changes](./images/ansibleconfiguser.png]
+  3. Locate your ansible config file and hosts file.  
+     - It will most likely be within the /etc/ansible/ folder
+     - Modify the ansible.cfg file. ![changes](./images/ansibleconfiguser.png)
      - Modify the host file on the ansile container to include a reference to the Web Servers and to the Elk Server. ![Host Changes](./images/HostChanges.png)
-  2. Next run the [pentest-playbook.yml](pentest-playbook.yml) playbook in the ansible container.
-  3. To test and see if everything worked out go to the IP address for the load balancer's setup.php page.  My page looks url is: ![http://13.66.162.18/setup.php](./images/DVWATest.PNG), yours will be different.
+  4. create a file within /etc/ansible/ called pentest-playbook.yml. 
+     - run nano pentest-playbook.yml.
+     - Copy the contents from [pentest-playbook.yml](pentest-playbook.yml)
+     - Save the file changes and exit
+  5. Next run the pentest-playbook.yml playbook in the ansible container by running.
+     - ansible-playbook pentest-playbook.yml
+  6. To test and see if everything worked out go to the IP address for the load balancer's setup.php page.  My page looks url is: ![http://13.66.162.18/setup.php](./images/DVWATest.PNG), yours will be different.
 </details>
 
 ### Access Policies
@@ -142,6 +148,9 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
   - Once installed, it is setup and started.
   - Finally it is setup to start at reboot.
 </details>
+
+Playbook can be run by entering:
+- ansible-playbook filebeat-playbook.yml
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
