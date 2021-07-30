@@ -79,18 +79,20 @@ The machines on the internal network are not exposed to the public Internet.
 </details>
     
     
-Machines within the network can only be accessed by _____.
-- _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_
+Machines within the network can only be accessed by whatever IP address was setup witthin the outbound rule on the load balancer.
 
 A summary of the access policies in place can be found in the table below.
 
-| Name     | Publicly Accessible | Allowed IP Addresses |
-|----------|---------------------|----------------------|
-| Jump Box | Yes/No              | 10.0.0.1 10.0.0.2    |
-|          |                     |                      |
-|          |                     |                      |
+| Name                 | Publicly Accessible | Allowed IP Addresses                 |
+|----------------------|---------------------|--------------------------------------|
+| Jump Box Provisioner | No                  | IP setup on Inbound Rule             |
+| Web-1                | No                  | 10.0.0.4 on ssh 22                   |
+| Web-2                | No                  | 10.0.0.4 on ssh 22                   |
+| ELK Server           | No                  | IP Setup in Outbound rule on TCP 5601|
+| Load Balancer        | No                  | IP Setup in Outbound rule on HTTP 80 |
 
-### Elk Configuration
+
+### Elk Configuration  
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
 - _TODO: What is the main advantage of automating configuration with Ansible?_
