@@ -50,7 +50,7 @@ The configuration details of each machine may be found below.
   <summary>Prepare Virtual machines and related Azure objects</summary>
   
   ## CreateVMS
-  1. [The Virtual Machines can be provisioned in the same manner.  ](./images/CreateVM)
+  1. [The Virtual Machines can be provisioned in the same manner. ](./images/CreateVM)
   2. [Once the VMs are provisioned the Load Balancer can be created. ](./images/CreateLoadBalancer.PNG)
   3. [Once the Load Balancer is created add Web-1 and Web-2 to a newly created Backend pool. ](./images/BackEndPool.PNG)
   4. [A load balancing rules is then created to manage the flow of traffic. ](./images/LoadBalanceRule.PNG)
@@ -62,9 +62,45 @@ The configuration details of each machine may be found below.
        - Mode : Reset SSH Public Key
        - Username: Whatever username you setup the VMs with.
        - SSH public key: Copied key from generated code or old key you already had.
-  6. [Modify the host file on the ansile container to include a reference to the Web Servers and to the Elk Server.](./images/HostChanges.png)
-  6. Next you install the necessary software by loading ansible docker container into the Web servers via the Jump Box Provisioner.
-  7. To test and see if everything worked out go to the IP address for the load balancer's setup.php page.  My page looks url is: [http://13.66.162.18/setup.php](./images/DVWATest.PNG), yours will be different.
+
+</details>
+
+<details>
+  <summary> Prepare Jump Box Provisioner</summary>
+  
+  ## Jump box configuration
+  1. Switch to root by running:
+     - sudo su
+  2. Intall docker.io on the VM by running:
+     - apt update
+     - apt install docker.io
+  3. Check to make sure sevice is running by entering:
+     - systemctl status docker
+  4. Once installed run:
+     - docker pull cybersecurity/ansible
+  5. If everything went well run:
+     - docker run -ti cybersecurity/ansible:latest bash
+       - This will start the container
+     - run exit to quit the containter and go back to the Jump box.
+  6. Modify the host file on the ansile container to include a reference to the Web Servers and to the Elk Server. ![Host Changes](./images/HostChanges.png)
+  7. Next you install the necessary software by loading [ansible docker container](pentest.yml) into the Web servers via the Jump Box Provisioner.
+  8. To test and see if everything worked out go to the IP address for the load balancer's setup.php page.  My page looks url is: [http://13.66.162.18/setup.php](./images/DVWATest.PNG), yours will be different.
+</details>
+
+<details>
+  <summary> Preparing Ansible box configuration</summary>
+  
+  ## Configure Ansible Container
+  1. Log into your Jump box and list your docker containers by running:
+     - sudo docker container list -a ![list](./images/containerlist.png)
+  2. Use the list results to retrieve the name of the container you want to start.
+     - run docker start [container name] 
+     - then run docker attach [container name] to get a shell in the container.
+  2. Locate your ansible config file and hosts file.  It will most likely be within /etc/ansible/
+     - Modify the ansible.cfg file. ![config changes](./images/ansibleconfiguser.png]
+     - Modify the host file on the ansile container to include a reference to the Web Servers and to the Elk Server. ![Host Changes](./images/HostChanges.png)
+  2. Next run the [pentest-playbook.yml](pentest-playbook.yml) playbook in the ansible container.
+  3. To test and see if everything worked out go to the IP address for the load balancer's setup.php page.  My page looks url is: ![http://13.66.162.18/setup.php](./images/DVWATest.PNG), yours will be different.
 </details>
 
 ### Access Policies
@@ -109,7 +145,7 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![Elk Configuration Results Image](Images/ScreenShotAfterConfiguringElk.png)
+![Elk Configuration Results Image](./images/ScreenShotAfterConfiguringElk.png)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
