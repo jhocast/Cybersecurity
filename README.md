@@ -2,15 +2,15 @@
 
 The files in this repository were used to configure the network depicted below.
 
-[Network Diagram:](./images/Network%20Diagram%20(1).pdf)
+- [Network Diagram:](./images/Network%20Diagram%20(1).pdf)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook yml file may be used to install only certain pieces of it, such as Filebeat.
 
 - [filebeat Playbook:](filebeat-playbook.yml)
-- [Pentest Playbook for DVWA setup:](pentest..yml)
+- [Pentest Playbook for DVWA setup:](pentest.yml)
 
 This document contains the following details:
-- Description of the Topologu
+- Description of the Topology
 - Access Policies
 - ELK Configuration
   - Beats in Use
@@ -24,7 +24,6 @@ The main purpose of this network is to expose a load-balanced and monitored inst
 
 Load balancing ensures that the application will be highly available and reliable, in addition to restricting access to the network.  It also helps protect production servers by redirecting traffic in case of DDOS attacks.  
 Administrative Access to these load balanced virtual machines is provided through the Jump Box Provisioner.  Using the Jump Box Provisioner provides the advantage of Network Segmentation and Access Control as well as central launching point for any administrative tasks needed on the network servers.
-
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the data and system logs.
 
@@ -72,7 +71,7 @@ The configuration details of each machine may be found below.
 The machines on the internal network are not exposed to the public Internet. 
 
 <details>
-  <summary>Only the Elk Server machine can accept connections from the Internet. Access to this machine is only allowed from the following IP whatever IP addresses were white listed in the Azure inbound rules:</summary>
+  <summary>Only the Elk Server machine can accept connections from the Internet. Access to this machine is only allowed from whatever IP addresses were white listed in the load balancer's inbound rule:</summary>
     
   ## Creating Outbound rule on Elk Server
   1. Locate you IP address on https://whatismyipaddress.com
