@@ -95,13 +95,17 @@ A summary of the access policies in place can be found in the table below.
 
 ### Elk Configuration  
 
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- _TODO: What is the main advantage of automating configuration with Ansible?_
-_
-The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ...
-- ...
+Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because it make sure that every configuration is the same on all servers.  It also allows for deployment of applications and services quickly and simply.  With the creation of a playbook and implementation of it, a system could be up an running as quickly as the playbook is completed.
+
+<details>
+  <summary>The playbook implements the following tasks:</summary>
+  
+  ## Ansible [filebeat Playbook: ](filebeat-playbook.yml)
+  - First the the machine memory is increated to make sure there is enough memory to run the services ansible will install
+  - Then the filebeat .deb file is downloaded and installed.
+  - Once installed, it is setup and started.
+  - Finally it is setup to start at reboot.
+</details>
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
