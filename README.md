@@ -103,7 +103,7 @@ The configuration details of each machine may be found below.
      - Modify the host file on the ansile container to include a reference to the Web Servers and to the Elk Server. ![Host Changes](./images/HostChanges.png)
   4. create a file within /etc/ansible/ called pentest-playbook.yml. 
      - run nano pentest-playbook.yml.
-     - Copy the contents from [pentest-playbook.yml](pentest-playbook.yml)
+     - Copy the contents from [pentest-playbook.yml](pentest.yml)
      - Save the file changes and exit
   5. Next run the pentest-playbook.yml playbook in the ansible container by running.
      - ansible-playbook pentest-playbook.yml
