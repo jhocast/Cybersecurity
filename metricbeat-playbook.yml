@@ -1,5 +1,5 @@
 --
-- name: create filebeat
+- name: create metricbeat
   hosts: webservers
   remote_user: azadmin
   become: yes
