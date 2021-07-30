@@ -172,23 +172,24 @@ This ELK server is configured to monitor the following machines:
 - Web-1 : 10.0.0.5
 - Web-2 : 10.0.0.6
 
-We have installed the following Beats on these machines:
-- file beat with the filebeat-playbook.yml
+We have installed the filebeats on ELK Server, Web-1 and Web-2
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+- filebeat will allow for the collection of log data on the machines running in the network created.  Sample logs that filebeat can collect include system, audit logs.  It's all a matter of defining what types of logs you want filebeat to collect and configure the collection.
+
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
+For ELK installation:
+- Copy the [elk-playbook.yml](elk-playbook.yml) file to /etc/ansible/ on the container.
+- run ansible-playbook elk-playbook.yml
 
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
+For filebeat installation
+- Make sure the filebeat.config.yml file has the correct host referenced.  It should be the private IP address of the Elk Server.
+- Run the [filebeat-playbook](filebeat-playbook.yml) with (run ansible-playbook.yml) 
+- SSH into the ELK VM from the Jump box to check that the installation worked as expected.
+- Once that playbook is run as well as the filebeat-playbook.yml, you can verify by going to Kibana > Logs : Add log data > System logs > 5:Module Status > Check.  Within this page you will see the data you pulled from the servers was pulled by the ELK Server. ![Kibana site.](./images/kibanapage.png) 
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+
